@@ -1,0 +1,20 @@
+def dfs(graph, start, visited):
+    visited[start] = True
+    print(start, end=" ")
+
+    for node in graph[start]:
+        if not visited[node]:
+            dfs(graph, node, visited)
+
+graph = [
+    [1, 2],    
+    [0, 3, 4], 
+    [0, 5],    
+    [1],      
+    [1],       
+    [2]       
+]
+
+visited = [False] * len(graph)
+
+dfs(graph, 0, visited)

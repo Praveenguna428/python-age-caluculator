@@ -1,0 +1,16 @@
+class Rec:
+    def set_dim(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        print(self.width)
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+R1 = Rec()
+R1.set_dim(5, 4)
+print("Area is", R1.area())
+print("Perimeter is:", R1.perimeter())

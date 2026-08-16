@@ -1,0 +1,54 @@
+import socket
+import threading
+import tkinter as tk
+from tkinter import scrolledtext
+
+def handle_client(conn):
+    while True:
+        try:
+            msg = conn.recv(1024).decode("utf-8")
+            if msg:
+                chat_area.config(state='normal')
+                chat_area.insert(tk.END, "Client: " + msg + "\n")
+                chat_area.config(state='disabled')
+        except:
+            break
+
+def start_server():
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.bind(("172.16.6.33", 9999))  # or replace with specific IP
+    server_socket.listen(1)
+    print("Waiting for connection...")
+    conn, addr = server_socket.accept()
+    print("Connected to:", addr)
+    threading.Thread(target=handle_client, args=(conn,), daemon=True).start()
+
+    # Make 'send' button functional
+    def send():
+        msg = msg_entry.get()
+        msg_entry.delete(0, tk.END)
+        conn.send(msg.encode("utf-8"))
+        chat_area.config(state='normal')
+        chat_area.insert(tk.END, "You: " + msg + "\n")
+        chat_area.config(state='disabled')
+
+    send_btn.config(command=send)
+
+# GUI Setup (runs on main thread)
+win = tk.Tk()
+win.title("Server Chat")
+
+chat_area = scrolledtext.ScrolledText(win, state='disabled', width=50, height=20)
+chat_area.pack()
+
+msg_entry = tk.Entry(win, width=40)
+msg_entry.pack(side=tk.LEFT)
+
+send_btn = tk.Button(win, text="Send")
+send_btn.pack(side=tk.RIGHT)
+
+# Start server thread (non-blocking)
+threading.Thread(target=start_server, daemon=True).start()
+
+# Start Tkinter event loop
+win.mainloop()

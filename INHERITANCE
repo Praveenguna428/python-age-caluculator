@@ -1,0 +1,75 @@
+class Person:
+    def __init__(self, name, id_number):
+        self.name = name
+        self.id_number = id_number
+
+    def show_identity(self):
+        print(f"Name      : {self.name}")
+        print(f"ID Number : {self.id_number}")
+
+
+class Student(Person):
+    def __init__(self, name, id_number, course):
+        super().__init__(name, id_number)
+        self.course = course
+
+    def show_course(self):
+        print(f"Course    : {self.course}")
+
+class Faculty(Person):  
+    def __init__(self, name, id_number, department):
+        super().__init__(name, id_number)
+        self.department = department
+
+    def show_department(self):
+        print(f"Department: {self.department}")
+
+
+class HeadOfDepartment(Faculty):
+    def __init__(self, name, id_number, department, admin_code):
+        super().__init__(name, id_number, department)
+        self.admin_code = admin_code
+
+    def show_admin_privileges(self):
+        print(f"HOD Access: {self.admin_code}")
+
+class Researcher:
+    def __init__(self, field):
+        self.field = field
+
+    def show_research(self):
+        print(f"Research Field: {self.field}")
+
+class Dean(HeadOfDepartment, Researcher):
+    def __init__(self, name, id_number, department, admin_code, field, zone):
+        HeadOfDepartment.__init__(self, name, id_number, department, admin_code)
+        Researcher.__init__(self, field)
+        self.zone = zone
+
+    def show_zone(self):
+        print(f"Dean Zone     : {self.zone}")
+
+
+print("STUDENT OBJECT")
+s = Student("Raj", "S101", "Computer Science")
+s.show_identity()
+s.show_course()
+
+print("FACULTY OBJECT")
+f = Faculty("Dr. Arvind", "F202", "Physics")
+f.show_identity()
+f.show_department()
+
+print("HOD OBJECT")
+hod = HeadOfDepartment("Dr. Meena", "F303", "Mathematics", "HODX123")
+hod.show_identity()
+hod.show_department()
+hod.show_admin_privileges()
+
+print("DEAN OBJECT")
+d = Dean("Dr. Rao", "D404", "Engineering", "DENG456", "Quantum Computing", "South Campus")
+d.show_identity()
+d.show_department()
+d.show_admin_privileges()
+d.show_research()
+d.show_zone()

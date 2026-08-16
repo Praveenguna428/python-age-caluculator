@@ -1,0 +1,13 @@
+coins = [500, 200, 100, 50, 20, 10, 5, 2, 1]
+
+amount = int(input("Enter amount in Rs: "))
+print(f"Amount: Rs{amount}")
+print("Coins used:", end=" ")
+
+for coin in coins:
+    while amount >= coin:
+        print(coin, end=" ")
+        amount -= coin
+
+if amount > 0:
+    print(f"\nRemaining amount that can't be changed: Rs{amount}")

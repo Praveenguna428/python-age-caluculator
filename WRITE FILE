@@ -1,0 +1,4 @@
+file=open("DAY7.txt","w")
+file.write("Hi How are Your., Would like tio have bnike ride with me??")
+file.close()
+print("The content written successsfulyy")

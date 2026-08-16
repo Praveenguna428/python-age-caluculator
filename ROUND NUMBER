@@ -1,0 +1,12 @@
+def is_round_number(n):
+    visited = set() 
+    while n != 1:
+        if n in visited:
+            return False
+        visited.add(n)
+        n = sum(int(digit)**2 for digit in str(n))
+    return True  # Number is round
+
+
+print(is_round_number(19))  # Output: True
+print(is_round_number(4))   # Output: False

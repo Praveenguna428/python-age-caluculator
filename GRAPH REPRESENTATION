@@ -1,0 +1,39 @@
+
+class Node:
+    def __init__(self, vertex):
+        self.vertex = vertex
+        self.next = None
+
+class Graph:
+    def __init__(self, vertices):
+        self.V = vertices
+        self.graph = [None] * self.V  
+
+    def add_edge(self, src, dest):
+        node = Node(dest)
+        node.next = self.graph[src]
+        self.graph[src] = node
+
+        node = Node(src)
+        node.next = self.graph[dest]
+        self.graph[dest] = node
+
+    def display(self):
+        for i in range(self.V):
+            print(f"Adjacency list of vertex {i}:", end=" ")
+            temp = self.graph[i]
+            while temp:
+                print(f"-> {temp.vertex}", end=" ")
+                temp = temp.next
+            print()
+
+g = Graph(5)
+g.add_edge(0, 1)
+g.add_edge(0, 4)
+g.add_edge(1, 2)
+g.add_edge(1, 3)
+g.add_edge(1, 4)
+g.add_edge(2, 3)
+g.add_edge(3, 4)
+
+g.display()

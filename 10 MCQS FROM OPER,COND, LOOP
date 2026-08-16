@@ -1,0 +1,113 @@
+---------------1------------
+print(100/2/3//2//3%3/3)
+a)2.0
+b)0.6666
+c)0.3333
+d)2.2222
+e)None of these
+-------------2----------------
+a=2
+c=2
+for i in range(30,20,2):
+    a=a+i
+    c=i
+a=a+c 
+print(a)
+1)4
+2)6
+3)8
+4)10
+5)None of these
+--------------3------------
+a=20
+for i in 10,20,30,40:
+    a=a-2
+for i in range(a-4):
+    print("hai ")
+
+1) Hai Hai Hai Hai Hai Hai Hai Hai
+2) Hai Hai Hai Hai Hai Hai Hai Hai Hai Hai Hai Hai Hai Hai Hai Hai
+3) Hai Hai Hai Hai Hai
+4) Hai Hai Hai Hai Hai Hai Hai Hai Hai Hai
+5) None of these
+------------------4----------------------
+a=13
+a=a>>1
+a=a|2
+print(a)
+
+1)6
+2)5
+3)4
+4)3
+5) None of these
+----------------------5---------------------
+a=5
+for i in "range":
+    a=a+10 
+    if(i in "aeiou"):
+        a=a+2 
+    print(a,end=" ")
+    if(a>38):
+        break
+1)15 27 37 39
+2) 15 25 35 47
+3) 15 17 19 21 23
+4) 15 25 35 47 57
+5) None of these (correct)
+-------------------6----------------------------------
+for i in range(10,100):
+    if(i%2==0 or i%3==0):
+        continue 
+    if(i%3==0):
+        pass 
+    if(i%7==1):
+        break
+    print(i,end=" ")
+
+1) 11,13,17,19,23,25
+2) 11,13,17,19,23,25,37,39
+3) 11,17,19,
+4) 11,13 
+5) None of these
+---------------------------7-------------------------
+print(10+2/3*8/3+2-3//3)
+
+1)12.7777
+2)12 
+3)24.7777
+4)24
+5)None of these
+----------------------------8-----------------------
+a="A"
+b=(chr(ord(a)+3))
+print(str(ord(a))+str(ord(b)))
+
+1)6568
+2)133
+3)AC
+4)ac
+5)None of these
+------------------------------9--------------------------
+a=20
+for i in 1234:
+    a=a+i
+    if(i==4):
+        continue
+print(a)
+   
+1) Error
+2) 30
+3) 26
+4) 20
+5) 20123
+----------------------------10----------------------
+for i in (str(100//7)):
+    print(i*2,end=" ")
+    print(int(i)+2,end=" ")
+
+1)11 3 44 6
+2)2 3 4 6
+3)2 3
+4)Error
+5)100//7

@@ -1,0 +1,46 @@
+from tkinter import *
+def save_info():
+    a=name_1.get()
+    b=phone_1.get()
+    c=gender_1.get()
+    d=city_1.get()
+
+    with open("yuvi.txt", "w") as file:
+        file.write("Name {}\n".format(a))
+        file.write(f"Phone: {b}\n")
+        file.write(f"Emergency Contact: {c}\n")
+        file.write(f"Payment Mode: {d}\n")
+
+app=Tk()
+app.geometry("500x300")
+
+Label(app, text="Registration Form", font="ar 20 bold").grid(row=0, column=3)
+
+name = Label(app, text="NAME")
+phone = Label(app, text="PHONE")
+gender = Label(app, text="GENDER")
+city = Label(app, text="CITY")
+
+name.grid(row=1, column=2)
+phone.grid(row=2, column=2)
+gender.grid(row=3, column=2)
+city.grid(row=4, column=2)
+
+name_1 = StringVar()
+phone_1 = StringVar()
+gender_1 = StringVar()
+city_1 = StringVar()
+
+name1entry = Entry(app, textvariable=name_1)
+phoneentry = Entry(app, textvariable=phone_1)
+genderentry = Entry(app, textvariable=gender_1)
+cityentry = Entry(app, textvariable=city_1)
+
+name1entry.grid(row=1, column=3)
+phoneentry.grid(row=2, column=3)
+genderentry.grid(row=3, column=3)
+cityentry.grid(row=4, column=3)
+
+Button(app,text="submit",command=save_info).grid(row=7,column=3)
+
+mainloop()

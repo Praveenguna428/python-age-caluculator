@@ -1,0 +1,35 @@
+import calendar
+
+print(calendar.month(2025, 7))
+------------------------------
+print(calendar.calendar(2025))
+---------------------------
+print(calendar.isleap(2024))  
+print(calendar.isleap(2025))  
+-----------------------------------
+from datetime import date
+
+d1 = date(2025, 7, 16)
+d2 = date(2025, 8, 1)
+
+diff = d2 - d1
+print("Difference:", diff.days, "days")
+--------------------------------------------
+from datetime import datetime
+
+date_str1 = input("Enter first date (YYYY-MM-DD): ")
+date_str2 = input("Enter second date (YYYY-MM-DD): ")
+
+d1 = datetime.strptime(date_str1, "%Y-%m-%d")
+d2 = datetime.strptime(date_str2, "%Y-%m-%d")
+
+diff = d2 - d1
+print("Difference:", abs(diff.days), "days")
+------------------------------------------------------------
+from datetime import datetime
+import pytz
+
+a = pytz.timezone('Asia/Kolkata')
+b = datetime.now(a)
+print(b)
+----------

@@ -1,0 +1,35 @@
+name1 = input("Enter the boy name without spaces: ")
+    name2 = input("Enter the girl name without spaces: ")
+    l1 = list(name1)
+    l2 = list(name2)
+    a = len(l1)
+    b = len(l2)
+
+    for x in range(a):
+        for y in range(b):
+            if l1[x] == l2[y]:
+                l1[x] = '2'  
+                l2[y] = '2'
+
+    print(l1)
+    print(l2)
+    a = 0
+    b = 0
+
+    for c in l1:
+        if c != '2':
+            a += 1
+
+    for c in l2:
+        if c != '2':
+            b += 1
+
+    cnt = a + b
+    print(cnt)
+    ans = list('flames')
+    f = 0
+    while len(ans) > 1:
+        f = (f + (cnt - 1)) % len(ans)
+        ans.pop(f)
+
+    print(ans[0])

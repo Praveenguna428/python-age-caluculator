@@ -1,0 +1,65 @@
+class A:
+    x = 10
+    def __init__(self):
+        self.x = self.x + 1
+
+a1 = A()
+A.x = A.x + 5
+a2 = A()
+print(a1.x, a2.x, A.x)     11,16 15
+---------------------------------
+class Test:
+    a = 5
+    def __init__(self):
+        self.a = self.a + 2
+    def abc(self,a):
+        res=1
+        for i in range(2,a):
+          res=res+i 
+        return res
+
+t = Test()
+print(t.abc(t.a))      21
+-----------------------------------------
+class Demo:
+    count = 0
+    def __init__(self):
+        self.a=20
+        if(Demo.count==2):
+            Demo.count+=self.a
+        else:
+            Demo.count+=1
+
+d1 = Demo()
+d2 = Demo()
+d3 = Demo()
+d3.count = 10
+print(d1.count, d2.count, d3.count)   22 22 10
+---------------------------------------------
+class Raju:
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c + a   
+
+l = []
+l.append(Raju(2, 3, 4))   
+l.append(Raju(6, 1, 5))   
+
+print((len(str(l[1].c))) * 15) 
+30
+---------------------------------
+class A:
+    val = 1
+    def __init__(self):
+        A.val += 1
+    def show(self):
+        print(self.val)
+
+obj1 = A()
+obj2 = A()
+obj2.val += 5
+obj1.show()
+obj2.show()
+print(A.val)
+----------------------------- 3 8 3 

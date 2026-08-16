@@ -1,0 +1,19 @@
+class Rec:
+    def set_dim(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+        
+rectangle_list = []
+num_rectangles = int(input("Enter the number of rectangles: "))
+for i in range(num_rectangles):
+    R = Rec()
+    width = float(input(f"Enter the width of rectangle {i+1}: "))
+    height = float(input(f"Enter the height of rectangle {i+1}: "))
+    R.set_dim(width, height)
+    rectangle_list.append(R)
+for i in range(num_rectangles):
+    print(f"Rectangle {i+1}:")
+    print("Area is", rectangle_list[i].area())

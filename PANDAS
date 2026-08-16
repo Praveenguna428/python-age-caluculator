@@ -1,0 +1,5 @@
+import pandas as pd
+df = pd.read_excel('students.xlsx')
+df['Mark'] = df['Mark'] + 5
+print(df)
+df.to_excel('students_updated.xlsx', index=False)

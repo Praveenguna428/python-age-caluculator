@@ -1,0 +1,13 @@
+import heapq
+
+heap = []
+
+elements = [20, 15, 30, 10, 1,40,2,18]
+for element in elements:
+    heapq.heappush(heap, element)
+
+print("Min Heap:", heap)
+
+min_element = heapq.heappop(heap)
+print("Popped Min Element:", min_element)
+print("Heap after pop:", heap)
